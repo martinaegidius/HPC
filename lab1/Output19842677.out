@@ -1,0 +1,51 @@
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@hpc.dtu.dk>
+Subject: Job 19842677: <SLEEPER> in cluster <dcc> Exited
+
+Job <SLEEPER> was submitted from host <n-62-27-20> by user <s194119> in cluster <dcc> at Tue Jan  2 13:18:35 2024
+Job was executed on host(s) <n-62-21-76>, in queue <hpcintro>, as user <s194119> in cluster <dcc> at Tue Jan  2 13:18:36 2024
+</zhome/ba/f/147212> was used as the home directory.
+</zhome/ba/f/147212/hpc/lab1> was used as the working directory.
+Started at Tue Jan  2 13:18:36 2024
+Terminated at Tue Jan  2 13:18:38 2024
+Results reported at Tue Jan  2 13:18:38 2024
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/sh
+#BSUB -q hpcintro
+#BSUB -J SLEEPER
+#BSUB -R "rusage[mem=2MB]"
+#BSUB -R "select[model == XeonE5_2650v4]"
+#BSUB -W 00:02
+#BSUB -u gygridd@gmail.com
+#BSUB -o Output%J.out
+
+#commands to exec
+/bin/sleep 30 
+echo "Finished sleeping..." 
+echo $CPUTYPEV
+
+------------------------------------------------------------
+
+TERM_MEMLIMIT: job killed after reaching LSF memory usage limit.
+Exited with signal termination: 9.
+
+Resource usage summary:
+
+    CPU time :                                   0.59 sec.
+    Max Memory :                                 2 MB
+    Average Memory :                             -
+    Total Requested Memory :                     2.00 MB
+    Delta Memory :                               0.00 MB
+    Max Swap :                                   -
+    Max Processes :                              -
+    Max Threads :                                -
+    Run time :                                   1 sec.
+    Turnaround time :                            3 sec.
+
+The output (if any) is above this job summary.
+

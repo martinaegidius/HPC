@@ -1,0 +1,55 @@
+Finished sleeping...
+XeonE5-2650v4
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@hpc.dtu.dk>
+Subject: Job 19842710: <SLEEPER> in cluster <dcc> Done
+
+Job <SLEEPER> was submitted from host <n-62-27-20> by user <s194119> in cluster <dcc> at Tue Jan  2 13:23:30 2024
+Job was executed on host(s) <4*n-62-21-3>, in queue <hpcintro>, as user <s194119> in cluster <dcc> at Tue Jan  2 13:23:31 2024
+</zhome/ba/f/147212> was used as the home directory.
+</zhome/ba/f/147212/hpc/lab1> was used as the working directory.
+Started at Tue Jan  2 13:23:31 2024
+Terminated at Tue Jan  2 13:24:03 2024
+Results reported at Tue Jan  2 13:24:03 2024
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/sh
+#BSUB -q hpcintro
+#BSUB -J SLEEPER
+#BSUB -R "rusage[mem=200MB]"
+#BSUB -R "select[model == XeonE5_2650v4]"
+#BSUB -n 4 #4 cores please
+#BSUB -R "span[hosts=1]" #on a single host 
+#BSUB -W 00:02
+
+#BSUB -u gygridd@gmail.com
+#BSUB -o multicore.out
+
+#commands to exec
+/bin/sleep 30 
+echo "Finished sleeping..." 
+echo $CPUTYPEV
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   0.32 sec.
+    Max Memory :                                 175 MB
+    Average Memory :                             175.00 MB
+    Total Requested Memory :                     800.00 MB
+    Delta Memory :                               625.00 MB
+    Max Swap :                                   -
+    Max Processes :                              4
+    Max Threads :                                5
+    Run time :                                   31 sec.
+    Turnaround time :                            33 sec.
+
+The output (if any) is above this job summary.
+

@@ -1,0 +1,1 @@
+gcc -o mattest miniblas.c -L /usr/lib64/atlas -lsatlas -Wall

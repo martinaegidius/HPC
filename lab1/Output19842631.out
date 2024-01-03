@@ -1,0 +1,47 @@
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@hpc.dtu.dk>
+Subject: Job 19842631: <SLEEPER> in cluster <dcc> Done
+
+Job <SLEEPER> was submitted from host <gbarlogin1> by user <s194119> in cluster <dcc> at Tue Jan  2 13:11:10 2024
+Job was executed on host(s) <n-62-31-21>, in queue <hpc>, as user <s194119> in cluster <dcc> at Tue Jan  2 13:11:10 2024
+</zhome/ba/f/147212> was used as the home directory.
+</zhome/ba/f/147212/hpc/lab1> was used as the working directory.
+Started at Tue Jan  2 13:11:10 2024
+Terminated at Tue Jan  2 13:12:13 2024
+Results reported at Tue Jan  2 13:12:13 2024
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/sh
+#BSUB -q hpc
+#BSUB -J SLEEPER
+#BSUB -R "rusage[mem=2MB]"
+#BSUB -W 00:02
+#BSUB -u gygridd@gmail.com
+#BSUB -o Output%J.out
+
+#commands to exec
+/bin/sleep 60 
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   0.36 sec.
+    Max Memory :                                 4 MB
+    Average Memory :                             2.67 MB
+    Total Requested Memory :                     2.00 MB
+    Delta Memory :                               -2.00 MB
+    Max Swap :                                   -
+    Max Processes :                              4
+    Max Threads :                                5
+    Run time :                                   64 sec.
+    Turnaround time :                            63 sec.
+
+The output (if any) is above this job summary.
+
