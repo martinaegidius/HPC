@@ -2382,3 +2382,70 @@ Resource usage summary:
 
 The output (if any) is above this job summary.
 
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@hpc.dtu.dk>
+Subject: Job 19853243: <SOAvsAOS> in cluster <dcc> Done
+
+Job <SOAvsAOS> was submitted from host <n-62-27-22> by user <s194119> in cluster <dcc> at Wed Jan  3 15:28:35 2024
+Job was executed on host(s) <n-62-21-74>, in queue <hpcintro>, as user <s194119> in cluster <dcc> at Wed Jan  3 15:28:37 2024
+</zhome/ba/f/147212> was used as the home directory.
+</zhome/ba/f/147212/hpc/day2/tune_labs> was used as the working directory.
+Started at Wed Jan  3 15:28:37 2024
+Terminated at Wed Jan  3 15:30:14 2024
+Results reported at Wed Jan  3 15:30:14 2024
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/sh
+
+
+#!/bin/sh
+#BSUB -q hpcintro
+#BSUB -J SOAvsAOS
+#BSUB -R "rusage[mem=4GB]"
+#BSUB -R "select[model == XeonE5_2650v4]"
+#BSUB -W 01:00
+#BSUB -u gygridd@gmail.com
+#BSUB -o /zhome/ba/f/147212/hpc/day2/tune_labs/logs/SOAvsAOS.out
+
+
+CC=${1-"gcc"}
+
+NPARTS="2000 3000 4000 5000 7500 10000 20000 40000 80000 200000 400000 800000 1200000 1600000 3000000"
+LOOPS=1000
+LOGEXT=$CC.dat
+
+/bin/rm -f aos.$LOGEXT soa.$LOGEXT
+for particles in $NPARTS
+do
+    ./aos.${CC} $LOOPS $particles | grep -v CPU >> aos.$LOGEXT
+    ./soa.${CC} $LOOPS $particles | grep -v CPU >> soa.$LOGEXT
+done
+
+# time to say 'Good bye' ;-)
+#
+exit 0
+
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   96.07 sec.
+    Max Memory :                                 34 MB
+    Average Memory :                             34.00 MB
+    Total Requested Memory :                     4096.00 MB
+    Delta Memory :                               4062.00 MB
+    Max Swap :                                   -
+    Max Processes :                              5
+    Max Threads :                                6
+    Run time :                                   96 sec.
+    Turnaround time :                            99 sec.
+
+The output (if any) is above this job summary.
+
